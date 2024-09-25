@@ -14,7 +14,7 @@ input_path = tools.selectFile()
 # 确保输出目录存在
 output_dir = f"{os.path.splitext(input_path)[0]}"
 
-print(input_path, output_dir)
+# print(input_path, output_dir)
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
