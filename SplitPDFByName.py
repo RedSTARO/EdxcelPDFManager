@@ -1,12 +1,15 @@
 import os
 import pdfplumber
+import tools
 from PyPDF2 import PdfReader, PdfWriter
 
 # 读取 PDF 文件
-input_path = 'raw.pdf'
+input_path = tools.selectFile()
 
 # 确保输出目录存在
-output_dir = 'output'
+output_dir = f"{os.path.splitext(input_path)[0]}"
+
+print(input_path, output_dir)
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
@@ -45,3 +48,4 @@ with pdfplumber.open(input_path) as pdf:
             print(f"在第 {page_num + 1} 页未找到表格。")
 
 print("PDF 拆分并命名完成！")
+os.system("pause")
