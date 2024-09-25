@@ -39,7 +39,11 @@ with pdfplumber.open(input_path) as pdf:
                 for rowIndex, row in enumerate(table):
                     if row[0] == "CANDIDATE No. AND NAME":
                         name = str(row[2]).replace(": ", " ")
-                        score = table[rowIndex + 2][0].replace("RESULT TYPE EXAM SESSION SUBJECT TITLE RESULT", "").replace("AWARD ", "").replace("4CH1", "").replace("4CN1", "").replace("4ES1", "").replace("4PH1", "").replace("4EC1", "").replace("END", "").split(" ")
+                        score = table[rowIndex + 2][0].replace("RESULT TYPE EXAM SESSION SUBJECT TITLE RESULT", "")\
+                                                      .replace("AWARD ", "").replace("4CH1", "").replace("4CN1", "")\
+                                                      .replace("4ES1", "").replace("4PH1", "").replace("4EC1", "")\
+                                                      .replace("END", "")\
+                                                      .split(" ")
                         for i, item in enumerate(score):
                             if "/" in item:
                                 score.remove(score[i])
