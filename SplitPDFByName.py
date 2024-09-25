@@ -3,6 +3,11 @@ import pdfplumber
 import tools
 from PyPDF2 import PdfReader, PdfWriter
 
+print("""
+Split a large pdf into pages by name
+Select file that you want to process
+""")
+
 # 读取 PDF 文件
 input_path = tools.selectFile()
 
